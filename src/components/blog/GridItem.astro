@@ -1,0 +1,70 @@
+---
+import { APP_BLOG } from 'astrowind:config';
+import type { Post } from '~/types';
+
+import Image from '~/components/common/Image.astro';
+
+import { findImage } from '~/utils/images';
+import { getPermalink } from '~/utils/permalinks';
+
+export interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const image = await findImage(post.image);
+
+const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
+---
+
+<article
+  class="bg-white dark:bg-slate-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden">
+  <div class="relative h-32">
+    {
+      image &&
+        (link ? (
+          <a href={link}>
+            <Image
+              src={image}
+              class="w-full h-full object-cover"
+              widths={[300]}
+              width={300}
+              height={169}
+              alt={post.title}
+              aspectRatio="16:9"
+              layout="cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        ) : (
+          <Image
+            src={image}
+            class="w-full h-full object-cover"
+            widths={[300]}
+            width={300}
+            height={169}
+            alt={post.title}
+            aspectRatio="16:9"
+            layout="cover"
+            loading="lazy"
+            decoding="async"
+          />
+        ))
+    }
+  </div>
+
+  <div class="p-4">
+    <h3 class="text-lg font-bold leading-tight mb-2 font-heading dark:text-slate-300">
+      {
+        link ? (
+          <a class="hover:text-primary dark:hover:text-blue-700 transition ease-in duration-200" href={link}>
+            {post.title}
+          </a>
+        ) : (
+          post.title
+        )
+      }
+    </h3>
+  </div>
+</article>

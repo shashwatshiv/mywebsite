@@ -1,0 +1,390 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import TechTakes from '~/components/widgets/TechTakes.astro';
+import ProjectCard from '~/components/widgets/ProjectCard.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Shashwat | Full-Stack Developer',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+
+  <Hero
+    id="hero"
+    tagline="hey, i am "
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get in Touch',
+        href: '/contact ',
+        icon: 'tabler:message-circle',
+      },
+      { text: 'About Me', href: '/about', icon: 'tabler:user' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.jpg', alt: 'Hero Image' }}>
+    <Fragment slot="title">
+      <div class="xl:inline">Shashwat Shivhare</div>
+      <div class="text-accent highlight">Full-Stack</div> Developer
+    </Fragment>
+    <Fragment slot="subtitle"
+      >"I build robust and user-friendly web applications, focused on clean code and efficient solutions."
+    </Fragment>
+  </Hero>
+
+  <!-- Motto -->
+
+  <Note />
+
+  <!-- About Section -->
+
+  <Features
+    id="features"
+    tagline="About Me"
+    title="Why Work With Me?"
+    subtitle="I combine technical expertise with a passion for creating impactful solutions. Here's what sets me apart:"
+    items={[
+      {
+        title: 'Full-Stack Expertise',
+        description:
+          'Experienced in both frontend and backend development, I build complete solutions from user interfaces to server architecture.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Problem Solver',
+        description:
+          'I thrive on tackling complex challenges and finding elegant solutions. Every project is an opportunity to solve unique problems.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Modern Tech Stack',
+        description:
+          'Staying current with the latest technologies while maintaining a strong foundation in proven solutions.',
+        icon: 'tabler:stack-2',
+      },
+      {
+        title: 'Clean Code Advocate',
+        description:
+          'I write maintainable, well-documented code that stands the test of time. Quality and best practices are always a priority.',
+        icon: 'tabler:file-code',
+      },
+      {
+        title: 'Continuous Learner',
+        description:
+          'Always exploring new technologies and approaches. I share my learning journey through my blog and open-source contributions.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Collaborative Approach',
+        description:
+          'I believe in clear communication and working closely with clients to ensure projects exceed expectations.',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+
+  <!-- Projects Section -->
+  <div class="hidden md:block mb-8">
+    <Content
+      tagline="Featured Project"
+      id="projects"
+      isReversed
+      isAfterContent={true}
+      items={[
+        {
+          title: 'Description:',
+          description: `Redesigned the e-commerce website for an eco-conscious fashion brand, GreenVogue. The objective was to align the brand's online presence with its sustainable ethos and improve user experience.`,
+          icon: 'tabler:article',
+        },
+        {
+          title: 'Tech Stack:',
+          description: `React.js, Next.js, TypeScript, Tailwind CSS, Node.js, PostgreSQL, Prisma, AWS S3, Docker, GitHub Actions`,
+          icon: 'tabler:stack-2',
+        },
+      ]}
+      image={{
+        src: '',
+        alt: 'GreenVogue E-commerce Project',
+      }}
+      callToAction={{
+        text: 'View Source',
+        icon: 'tabler:brand-github',
+        href: 'https://github.com/yourusername/greenvogue',
+        target: '_blank',
+      }}
+      callToAction2={{
+        text: 'Live Demo',
+        icon: 'tabler:external-link',
+        href: 'https://greenvogue.com',
+        target: '_blank',
+        variant: 'primary',
+      }}>
+      <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight heading-text sm:text-3xl mb-2">GreenVogue E-commerce</h3>
+      </Fragment>
+
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+  </div>
+
+  <!-- Mobile Featured Project -->
+  <div class="md:hidden mb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-8">
+        <span class="text-base font-semibold tracking-wide uppercase text-primary">Featured Project</span>
+      </div>
+      <ProjectCard
+        title="GreenVogue E-commerce"
+        description="Redesigned the e-commerce website for an eco-conscious fashion brand, GreenVogue. The objective was to align the brand's online presence with its sustainable ethos and improve user experience."
+        techStack={[
+          'React.js',
+          'Next.js',
+          'TypeScript',
+          'Tailwind',
+          'Node.js',
+          'PostgreSQL',
+          'Prisma',
+          'AWS',
+          'Docker',
+          'GitHub Actions',
+        ]}
+        image={{
+          src: '',
+          alt: 'GreenVogue E-commerce Project',
+        }}
+        sourceLink="https://github.com/yourusername/greenvogue"
+        demoLink="https://greenvogue.com"
+      />
+    </div>
+  </div>
+
+  <!-- Other Projects -->
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="grid md:grid-cols-2 gap-8">
+      <ProjectCard
+        title="TaskMaster Pro"
+        description="A real-time collaborative task management platform with AI-powered task prioritization. Features include team workspaces, custom workflows, and automated task suggestions."
+        techStack={['Vue.js', 'Nuxt.js', 'Python', 'FastAPI', 'MongoDB', 'Redis', 'TensorFlow', 'Docker', 'Kubernetes']}
+        image={{
+          src: '',
+          alt: 'TaskMaster Pro Project',
+        }}
+        sourceLink="https://github.com/yourusername/taskmaster"
+        demoLink="https://taskmaster.app"
+      />
+
+      <ProjectCard
+        title="FitAI Coach"
+        description="A mobile-first fitness tracking application that uses machine learning to provide personalized workout recommendations and form correction through video analysis."
+        techStack={['React.js', 'Node.js', 'Express', 'MongoDB', 'TensorFlow', 'Firebase', 'AWS']}
+        image={{
+          src: '',
+          alt: 'FitAI Coach Project',
+        }}
+        sourceLink="https://github.com/yourusername/fitai-coach"
+        demoLink="https://fitai.coach"
+      />
+    </div>
+  </div>
+
+  <!-- Skills Section ************** -->
+
+  <Features2
+    id="skills"
+    title="Tools of my Trade"
+    columns={7}
+    subtitle="Technologies & Tools I Use to Build Modern Web Applications"
+    items={[
+      // Frontend Core
+      {
+        title: 'React',
+        icon: 'skill-icons:react-dark',
+      },
+      {
+        title: 'Next.js',
+        icon: 'skill-icons:nextjs-dark',
+      },
+      {
+        title: 'TypeScript',
+        icon: 'skill-icons:typescript',
+      },
+      {
+        title: 'JavaScript',
+        icon: 'skill-icons:javascript',
+      },
+      {
+        title: 'Tailwind',
+        icon: 'skill-icons:tailwindcss-dark',
+      },
+      {
+        title: 'Bootstrap',
+        icon: 'skill-icons:bootstrap',
+      },
+      // Core Web
+      {
+        title: 'HTML',
+        icon: 'skill-icons:html',
+      },
+      {
+        title: 'CSS',
+        icon: 'skill-icons:css',
+      },
+      // Mobile & Backend
+      {
+        title: 'React Native',
+        icon: 'skill-icons:react-dark',
+      },
+      {
+        title: 'Node.js',
+        icon: 'skill-icons:nodejs-dark',
+      },
+      {
+        title: 'Express',
+        icon: 'skill-icons:expressjs-dark',
+      },
+      {
+        title: 'PostgreSQL',
+        icon: 'skill-icons:postgresql-dark',
+      },
+      {
+        title: 'MongoDB',
+        icon: 'skill-icons:mongodb',
+      },
+      {
+        title: 'Prisma',
+        icon: 'skill-icons:prisma',
+      },
+      // DevOps & Tools
+      {
+        title: 'AWS',
+        icon: 'skill-icons:aws-dark',
+      },
+      {
+        title: 'Docker',
+        icon: 'skill-icons:docker',
+      },
+      {
+        title: 'Git',
+        icon: 'skill-icons:git',
+      },
+      {
+        title: 'GitHub',
+        icon: 'skill-icons:github-dark',
+      },
+      // Languages & IDEs
+      {
+        title: 'Java',
+        icon: 'skill-icons:java-dark',
+      },
+      {
+        title: 'VSCode',
+        icon: 'skill-icons:vscode-dark',
+      },
+      {
+        title: 'Vim',
+        icon: 'skill-icons:vim-dark',
+      },
+      // Testing & API
+      {
+        title: 'Postman',
+        icon: 'skill-icons:postman',
+      },
+    ]}>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Tech Takes Widget ******* -->
+  <TechTakes
+    title="Latest from X 🐦"
+    subtitle="My thoughts on tech & development"
+    takes={[
+      {
+        content:
+          'Exploring the intersection of AI and web development. The possibilities are endless when you combine LLMs with modern web frameworks! Working on something exciting... 🚀 #WebDev #AI',
+        date: 'Jan 24',
+        likes: 32,
+        retweets: 8,
+        link: 'https://x.com/shashwatshiv/status/1750141673944146242',
+        id: '1750141673944146242',
+      },
+      {
+        content:
+          'Just deployed my first app with @astrodotbuild and @tailwindcss - the developer experience is incredible! The partial hydration approach is genius for performance. 💫',
+        date: 'Jan 22',
+        likes: 45,
+        retweets: 12,
+        link: 'https://x.com/shashwatshiv/status/1749827737860472832',
+        id: '1749827737860472832',
+      },
+      {
+        content:
+          "The more I use TypeScript, the more I appreciate its power. Type safety isn't just about catching bugs - it's about building maintainable systems at scale. 🛠️ #TypeScript",
+        date: 'Jan 20',
+        likes: 38,
+        retweets: 9,
+        link: 'https://x.com/shashwatshiv/status/1748392847583838491',
+        id: '1748392847583838491',
+      },
+    ]}
+  />
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Latest Blog Posts"
+    information={`Sharing insights on web development, tech trends, and software engineering best practices. 
+                  Join me as I explore the ever-evolving world of technology through practical articles and tutorials.`}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    stats={[
+      { title: 'Projects Completed', amount: '8' },
+      { title: 'Years Experience', amount: '1+' },
+      { title: 'GitHub Contributions', amount: '100+' },
+      { title: 'Happy Clients', amount: '2' },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get in Touch',
+        href: getPermalink('/contact'),
+        icon: 'tabler:message-circle',
+      },
+      {
+        text: 'See My Projects',
+        href: '#projects',
+        icon: 'tabler:briefcase',
+      },
+    ]}>
+    <Fragment slot="title">
+      Got a cool project <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">in mind?</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      I love turning ideas into reality through code. If you need a website, web app, or just want to chat about a
+      potential project,
+      <br class="hidden md:inline" />drop me a message. Let's build something awesome together!
+    </Fragment>
+  </CallToAction>
+</Layout>

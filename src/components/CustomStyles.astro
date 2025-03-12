@@ -1,0 +1,52 @@
+---
+import '@fontsource-variable/inter';
+---
+
+<style is:inline>
+  :root {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Inter Variable';
+    --aw-font-heading: 'Inter Variable';
+
+    /* Modern color scheme */
+    --aw-color-primary: rgb(99, 102, 241); /* Indigo */
+    --aw-color-secondary: rgb(79, 70, 229); /* Deeper indigo */
+    --aw-color-accent: rgb(236, 72, 153); /* Pink */
+
+    --aw-color-text-heading: rgb(17, 24, 39); /* Dark gray */
+    --aw-color-text-default: rgb(55, 65, 81); /* Medium gray */
+    --aw-color-text-muted: rgb(107, 114, 128); /* Light gray */
+
+    /* Light theme background with subtle texture */
+    --aw-color-bg-page: rgb(249, 250, 251);
+    --aw-color-bg-page-dark: rgb(17, 24, 39);
+
+    ::selection {
+      background-color: var(--aw-color-accent);
+      color: white;
+    }
+  }
+
+  .dark {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Inter Variable';
+    --aw-font-heading: 'Inter Variable';
+
+    /* Dark theme modern colors */
+    --aw-color-primary: rgb(129, 140, 248); /* Light indigo */
+    --aw-color-secondary: rgb(165, 180, 252); /* Lighter indigo */
+    --aw-color-accent: rgb(244, 114, 182); /* Light pink */
+
+    --aw-color-text-heading: rgb(243, 244, 246);
+    --aw-color-text-default: rgb(229, 231, 235);
+    --aw-color-text-muted: rgb(156, 163, 175);
+
+    /* Dark theme background */
+    --aw-color-bg-page: rgb(17, 24, 39);
+
+    ::selection {
+      background-color: var(--aw-color-accent);
+      color: rgb(17, 24, 39);
+    }
+  }
+</style>

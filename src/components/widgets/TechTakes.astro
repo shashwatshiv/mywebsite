@@ -1,0 +1,80 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface TechTake {
+  content: string;
+  date: string;
+  likes?: number;
+  retweets?: number;
+  link?: string;
+  id?: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  takes: Array<TechTake>;
+  profileImage?: string;
+}
+
+const {
+  title = 'Latest Tech Takes',
+  subtitle = 'Quick thoughts on tech trends and development',
+  takes = [],
+  profileImage = 'https://pbs.twimg.com/profile_images/1886156795569156096/v-U0FdvL_400x400.jpg',
+} = Astro.props;
+---
+
+<section class="relative not-prose scroll-mt-[72px]">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 space-y-6 py-6 md:py-8 lg:py-12">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="text-3xl md:text-4xl font-bold leading-tighter tracking-tighter font-heading">
+        {title}
+      </h2>
+      {subtitle && <p class="text-lg text-muted dark:text-slate-400 mt-2">{subtitle}</p>}
+    </div>
+    <div class="grid gap-6 md:grid-cols-3 lg:grid-cols-3 items-stretch">
+      {
+        takes.map(({ content, date, likes, retweets, link }) => (
+          <div class="relative flex flex-col p-5 bg-white dark:bg-slate-900 rounded-xl shadow-md hover:shadow-lg transition border border-transparent dark:border-slate-800">
+            <div class="flex items-center mb-3">
+              <img src={profileImage} alt="Profile" class="w-10 h-10 rounded-full" loading="lazy" />
+              <div class="ml-3">
+                <div class="font-bold dark:text-white text-sm">Shashwat</div>
+                <div class="text-xs text-gray-500">@shashwatshiv</div>
+              </div>
+              <Icon name="tabler:brand-x" class="w-4 h-4 ml-auto text-gray-500" />
+            </div>
+            <p class="flex-grow text-gray-800 dark:text-gray-300 mb-3 text-sm">{content}</p>
+            <div class="text-xs text-gray-500 mb-3">{date}</div>
+            <div class="flex items-center justify-start space-x-4 text-gray-500">
+              <div class="flex items-center space-x-1">
+                <button class="hover:text-blue-500 transition">
+                  <Icon name="tabler:heart" class="w-4 h-4" />
+                </button>
+                {likes && <span class="text-xs">{likes}</span>}
+              </div>
+              <div class="flex items-center space-x-1">
+                <button class="hover:text-green-500 transition">
+                  <Icon name="tabler:repeat" class="w-4 h-4" />
+                </button>
+                {retweets && <span class="text-xs">{retweets}</span>}
+              </div>
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ml-auto hover:text-blue-500 transition"
+                  aria-label="View on X">
+                  <Icon name="tabler:external-link" class="w-4 h-4" />
+                </a>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

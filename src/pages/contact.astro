@@ -1,0 +1,143 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import { Icon } from 'astro-icon/components';
+import { socialMediaData } from '~/navigation';
+
+const metadata = {
+  title: 'Contact',
+};
+
+const socialLinks = socialMediaData.socialLinks;
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Let's Create Something Amazing Together!"
+    subtitle="I'm always excited to discuss new projects, opportunities, and collaborations. Whether you have a project in mind or just want to connect, I'd love to hear from you."
+    tagline="Get in Touch"
+  />
+
+  <div class="grid md:grid-cols-5 gap-8 mx-auto max-w-7xl px-4 sm:px-6 py-8">
+    <!-- Left Column - Contact Form -->
+    <div
+      class="md:col-span-3 rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-6">
+      <ContactUs
+        id="form"
+        title="Send me a message"
+        subtitle="I'll get back to you as soon as possible."
+        button="Send Message"
+        inputs={[
+          {
+            type: 'text',
+            name: 'name',
+            label: 'Name',
+            placeholder: 'Your name',
+          },
+          {
+            type: 'email',
+            name: 'email',
+            label: 'Email',
+            placeholder: 'your@email.com',
+          },
+          {
+            type: 'text',
+            name: 'subject',
+            label: 'Subject',
+            placeholder: 'Project discussion, Job opportunity, etc.',
+          },
+        ]}
+        textarea={{
+          label: 'Message',
+          placeholder: 'Tell me about your project, timeline, and budget...',
+        }}
+        disclaimer={{
+          label:
+            'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        }}
+      />
+    </div>
+
+    <!-- Right Column - Additional Info -->
+    <div class="md:col-span-2 space-y-8">
+      <!-- Quick Connect Section -->
+      <div
+        class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-6">
+        <h3 class="text-2xl font-bold mb-4 dark:text-white">Quick Connect</h3>
+        <div class="flex flex-wrap gap-4">
+          {
+            socialLinks.map(({ ariaLabel, href, icon }) => (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                aria-label={ariaLabel}>
+                <Icon name={icon} class="w-5 h-5" />
+                <span class="font-medium">{ariaLabel}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div
+        class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-6">
+        <h3 class="text-2xl font-bold mb-6 dark:text-white">Contact Information</h3>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <Icon name="tabler:mail" class="w-6 h-6 mt-1 text-primary" />
+            <div>
+              <h4 class="font-semibold dark:text-white">Email</h4>
+              <a href="mailto:shashwat02infinity@gmail.com" class="text-gray-600 dark:text-gray-300 hover:text-primary">
+                shashwat02infinity@gmail.com
+              </a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <Icon name="tabler:map-pin" class="w-6 h-6 mt-1 text-primary" />
+            <div>
+              <h4 class="font-semibold dark:text-white">Location</h4>
+              <p class="text-gray-600 dark:text-gray-300">Indore, India</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <Icon name="tabler:clock" class="w-6 h-6 mt-1 text-primary" />
+            <div>
+              <h4 class="font-semibold dark:text-white">Response Time</h4>
+              <p class="text-gray-600 dark:text-gray-300">Usually within 24 hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Preferences -->
+      <div
+        class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-6">
+        <h3 class="text-2xl font-bold mb-4 dark:text-white">Work Preferences</h3>
+        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+          <li class="flex items-center gap-2">
+            <Icon name="tabler:check" class="w-5 h-5 text-primary" />
+            <span>Full-stack Development Projects</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <Icon name="tabler:check" class="w-5 h-5 text-primary" />
+            <span>Remote Collaboration</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <Icon name="tabler:check" class="w-5 h-5 text-primary" />
+            <span>Long-term Partnerships</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <Icon name="tabler:check" class="w-5 h-5 text-primary" />
+            <span>Innovative Tech Solutions</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

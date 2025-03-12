@@ -1,0 +1,90 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface TimelineItem {
+  date: string;
+  title: string;
+  description: string;
+  icon?: string;
+  tags?: string[];
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  items: TimelineItem[];
+  isReversed?: boolean;
+}
+
+const { title, subtitle, items = [], isReversed = false } = Astro.props;
+---
+<div class="mx-auto max-w-7xl p-4 m-12 sm:px-6 overflow-hidden">
+  <div class="mb-8 md:mx-auto md:text-center max-w-3xl">
+    {title && <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-4 font-heading">{title}</h2>}
+    {subtitle && <p class="text-lg text-gray-600 dark:text-slate-400">{subtitle}</p>}
+  </div>
+  <div class="relative mx-auto max-w-4xl">
+    <!-- Line running through timeline -->
+    <div class="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-200 dark:bg-gray-700"></div>
+
+    <div class="space-y-8">
+      {
+        items.map((item) => (
+          <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+            <!-- Date -->
+            <div class={`flex items-center ${isReversed ? 'md:mr-8' : 'md:ml-8'} w-full md:w-[45%]`}>
+              <div
+                class={`flex flex-col p-6 rounded-lg bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 
+                  ${isReversed ? 'items-end text-right' : 'items-start'} w-full transform transition duration-300 
+                  hover:shadow-lg hover:-translate-y-1`}
+              >
+                <span class="text-sm text-gray-500 dark:text-slate-400 mb-1">{item.date}</span>
+                <h3 class="text-xl font-bold mb-2">{item.title}</h3>
+                <p class="text-gray-700 dark:text-slate-300 whitespace-pre-line">{item.description}</p>
+                {item.tags && (
+                  <div class={`flex flex-wrap gap-2 mt-3 ${isReversed ? 'justify-end' : 'justify-start'}`}>
+                    {item.tags.map((tag) => (
+                      <span class="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary dark:text-blue-300">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <!-- Timeline point -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center z-10">
+              <div class="w-8 h-8 rounded-full border-2 border-primary bg-white dark:bg-slate-900 flex items-center justify-center">
+                {item.icon ? (
+                  <Icon name={item.icon} class="w-4 h-4 text-primary" />
+                ) : (
+                  <div class="w-2 h-2 rounded-full bg-primary" />
+                )}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .timeline-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease-out;
+  }
+
+  .timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-item {
+      transition: none;
+    }
+  }
+</style> 

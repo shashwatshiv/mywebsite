@@ -1,0 +1,229 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero2.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Timeline from '~/components/widgets/Timeline.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'About me',
+};
+
+const educationItems = [
+  {
+    date: '2020 - 2024',
+    title: 'Bachelor of Technology in Computer Science',
+    description:
+      'Indian Institute of Information Technology, Lucknow\n• CGPA: 8.5/10\n• Relevant Coursework: Data Structures, Algorithms, Database Management, Web Development, Cloud Computing',
+    icon: 'tabler:school',
+    tags: ['Computer Science', 'Web Development', 'Cloud Computing'],
+  },
+  {
+    date: '2018 - 2020',
+    title: 'Senior Secondary Education (XII)',
+    description: 'City Montessori School, Lucknow\n• Percentage: 95%\n• Stream: PCM with Computer Science',
+    icon: 'tabler:certificate',
+    tags: ['PCM', 'Computer Science'],
+  },
+  {
+    date: '2018',
+    title: 'Secondary Education (X)',
+    description:
+      'City Montessori School, Lucknow\n• Percentage: 95%\n• Notable Achievement: School Topper in Computer Science',
+    icon: 'tabler:certificate',
+    tags: ['Computer Science'],
+  },
+];
+
+const experienceItems = [
+  {
+    date: 'May 2023 - July 2023',
+    title: 'Software Development Engineer Intern @ Amazon',
+    description:
+      '• Developed and optimized microservices using Java Spring Boot\n• Implemented CI/CD pipelines reducing deployment time by 40%\n• Collaborated with cross-functional teams to deliver high-impact features',
+    icon: 'tabler:briefcase',
+    tags: ['Java', 'Spring Boot', 'AWS', 'CI/CD'],
+  },
+  {
+    date: 'Dec 2022 - April 2023',
+    title: 'Full Stack Developer Intern @ XYZ Tech',
+    description:
+      '• Built responsive web applications using React.js and Node.js\n• Implemented real-time features using WebSocket\n• Optimized database queries improving performance by 30%',
+    icon: 'tabler:code',
+    tags: ['React.js', 'Node.js', 'WebSocket', 'MongoDB'],
+  },
+  {
+    date: 'Jan 2022 - Present',
+    title: 'Open Source Contributor @ Various Projects',
+    description:
+      '• Active contributor to React.js and Node.js projects\n• Created and maintained documentation\n• Collaborated with global developer community',
+    icon: 'tabler:brand-github',
+    tags: ['Open Source', 'React.js', 'Node.js', 'Documentation'],
+  },
+];
+
+const skillCategories = [
+  {
+    title: 'Frontend Development',
+    description: 'Expertise in modern frontend frameworks and responsive design',
+    icon: 'tabler:code',
+    skills: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux'],
+  },
+  {
+    title: 'Backend Development',
+    description: 'Strong foundation in server-side technologies and APIs',
+    icon: 'tabler:server',
+    skills: ['Node.js', 'Express', 'Python', 'RESTful APIs', 'GraphQL'],
+  },
+  {
+    title: 'Database & Cloud',
+    description: 'Experience with various databases and cloud platforms',
+    icon: 'tabler:database',
+    skills: ['MongoDB', 'PostgreSQL', 'AWS', 'Docker', 'Firebase'],
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="About me"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Download Resume',
+        href: '/resume.pdf',
+        target: '_blank',
+        icon: 'tabler:download',
+      },
+      {
+        text: "Let's Connect",
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}>
+    <Fragment slot="title">
+      Hi, I'm <span class="text-accent highlight">Shashwat Shivhare</span>
+      <br />
+      Full Stack Developer
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      I'm a passionate software developer based in Lucknow, India, currently pursuing my B.Tech in Computer Science at
+      IIIT Lucknow. With a strong foundation in both frontend and backend technologies, I specialize in building
+      scalable web applications that solve real-world problems. My journey in tech has been driven by curiosity and a
+      desire to create impactful solutions. From developing microservices at Amazon to contributing to open-source
+      projects, I've gained diverse experience in software development. I believe in writing clean, maintainable code
+      and staying updated with the latest industry trends.
+    </Fragment>
+  </Hero>
+
+  <!-- Skills Overview ************** -->
+  <div class="mx-auto max-w-7xl p-4 md:px-8">
+    <div class="mb-8 md:mx-auto md:text-center">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-4 font-heading">Technical Skills</h2>
+      <p class="text-lg text-gray-600 dark:text-slate-400">
+        My expertise spans across various technologies and domains in software development
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        skillCategories.map((category) => (
+          <div class="flex flex-col p-4 bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name={category.icon} class="w-6 h-6 text-primary mr-2" />
+              <h3 class="text-xl font-bold">{category.title}</h3>
+            </div>
+            <p class="text-gray-600 dark:text-slate-300 mb-4">{category.description}</p>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              {category.skills.map((skill) => (
+                <span class="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary dark:text-blue-300">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Professional Experience Timeline ****************** -->
+  <Timeline
+    title="Professional Experience"
+    subtitle="My journey in the tech industry"
+    items={experienceItems}
+    isReversed={true}
+  />
+
+  <!-- Education Timeline ****************** -->
+  <Timeline title="Education" subtitle="My academic journey and qualifications" items={educationItems} />
+
+  <!-- My Approach Section ****************** -->
+  <Steps2
+    title="My Approach to Development"
+    subtitle="I follow a systematic methodology that ensures high-quality deliverables and successful project outcomes"
+    items={[
+      {
+        title: 'User-Centric Design',
+        description:
+          'I believe in putting users first. Every feature and design decision is made with the end-user in mind, ensuring intuitive and accessible solutions.',
+      },
+      {
+        title: 'Clean Code Architecture',
+        description:
+          'Writing maintainable, well-documented code is crucial. I follow best practices and design patterns to create scalable and efficient applications.',
+      },
+      {
+        title: 'Continuous Learning',
+        description:
+          'Technology evolves rapidly, and I stay updated with the latest trends and tools. I regularly participate in tech communities and contribute to open-source projects.',
+      },
+    ]}
+  />
+
+  <!-- Features3 Widget ************** -->
+  <Features3
+    title="Areas of Expertise"
+    subtitle="Comprehensive solutions across the full stack"
+    columns={3}
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Web Application Development',
+        description: 'Building responsive and performant web applications using modern frameworks and best practices.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'API Development',
+        description:
+          'Designing and implementing secure, scalable APIs following RESTful principles and GraphQL specifications.',
+        icon: 'tabler:api',
+      },
+      {
+        title: 'Database Architecture',
+        description: 'Creating efficient database schemas and optimizing queries for better performance.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Cloud Solutions',
+        description:
+          'Deploying and managing applications on cloud platforms with a focus on scalability and reliability.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Performance Optimization',
+        description:
+          'Implementing best practices for frontend and backend optimization to ensure fast, efficient applications.',
+        icon: 'tabler:speedboat',
+      },
+      {
+        title: 'Technical Leadership',
+        description: 'Leading technical discussions, mentoring team members, and making architectural decisions.',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+</Layout>

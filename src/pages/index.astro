@@ -95,10 +95,9 @@ const metadata = {
   />
 
   <!-- Projects Section -->
-  <div class="hidden md:block mb-8">
+  <div class="hidden md:block mb-8" id="projects">
     <Content
       tagline="Featured Project"
-      id="projects"
       isReversed
       isAfterContent={true}
       items={[
@@ -141,7 +140,7 @@ const metadata = {
   </div>
 
   <!-- Mobile Featured Project -->
-  <div class="md:hidden mb-8">
+  <div class="md:hidden mb-8" id="projects">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-8">
         <span class="text-base font-semibold tracking-wide uppercase text-primary">Featured Project</span>
@@ -191,11 +190,11 @@ const metadata = {
         description="A mobile-first fitness tracking application that uses machine learning to provide personalized workout recommendations and form correction through video analysis."
         techStack={['React.js', 'Node.js', 'Express', 'MongoDB', 'TensorFlow', 'Firebase', 'AWS']}
         image={{
-          src: '',
+          src: '~/assets/images/project-img-3.png',
           alt: 'FitAI Coach Project',
         }}
-        sourceLink="https://github.com/yourusername/fitai-coach"
-        demoLink="https://fitai.coach"
+        sourceLink="https://github.com/shashwatshiv/ledger-app-frontend"
+        demoLink="https://ledger-site.netlify.app/"
       />
     </div>
   </div>
@@ -378,7 +377,7 @@ const metadata = {
       },
     ]}>
     <Fragment slot="title">
-      Got a cool project <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">in mind?</span>
+      Got a cool project <br class="block sm:hidden" /><span class="sm:whitespace-nowrap">&nbsp;in mind?</span>
     </Fragment>
 
     <Fragment slot="subtitle">

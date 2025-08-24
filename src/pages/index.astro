@@ -27,9 +27,10 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get in Touch',
-        href: '/contact ',
-        icon: 'tabler:message-circle',
+        text: 'Resume ',
+        href: 'https://drive.google.com/file/d/15KWaCk6B6yFW1HG5hKgfsYuOcYVS5IFO/view?usp=sharing',
+        icon: 'tabler:file-type-pdf',
+        target: '_blank',
       },
       { text: 'About Me', href: '/about', icon: 'tabler:user' },
     ]}
@@ -99,7 +100,17 @@ const metadata = {
       <ProjectCard
         title="PayMate - Payments & Wallet App"
         description="A full-stack fintech application providing peer-to-peer transfers, on-ramp payments, and real-time balance tracking with secure fund management."
-        techStack={['React.js', 'Next.js', 'TypeScript', 'Tailwind', 'Node.js', 'PostgreSQL', 'Prisma']}
+        techStack={[
+          'React.js',
+          'Next.js',
+          'TypeScript',
+          'Tailwind',
+          'Node.js',
+          'PostgreSQL',
+          'Prisma',
+          'NextAuth',
+          'Turborepo',
+        ]}
         image={{
           src: '~/assets/images/project-img-1.png',
           alt: 'PayMate - Payments & Wallet App',
@@ -119,13 +130,13 @@ const metadata = {
         techStack={[
           'React.js',
           'Tailwind',
-          'Python',
-          'FastAPI',
-          'MongoDB',
-          'Redis',
-          'TensorFlow',
-          'Docker',
-          'Kubernetes',
+          'TypeScript',
+          'PostgreSQL',
+          'Prisma',
+          'Hono.js',
+          'Cloudflare Workers',
+          'Zod',
+          'JWT',
         ]}
         image={{
           src: '~/assets/images/project-img-2.png',
@@ -136,12 +147,12 @@ const metadata = {
       />
 
       <ProjectCard
-        title="FitAI Coach"
-        description="A mobile-first fitness tracking "
-        techStack={['React.js', 'Node.js', 'Express', 'MongoDB', 'TensorFlow', 'Firebase', 'AWS']}
+        title="Dukaan-Frontend"
+        description="A beautiful responsive frontend for a ledger app"
+        techStack={['React.js', 'Zustand', 'Tailwind']}
         image={{
           src: '~/assets/images/project-img-3.png',
-          alt: 'FitAI Coach Project',
+          alt: 'dukaan-frontend',
         }}
         sourceLink="https://github.com/shashwatshiv/ledger-app-frontend"
         demoLink="https://ledger-site.netlify.app/"
@@ -301,8 +312,19 @@ const metadata = {
       },
     ]}
   />
+
+  <!-- Stats Widget ****************** -->
+  <Stats
+    stats={[
+      { title: 'Projects Completed', amount: '8' },
+      { title: 'Years Experience', amount: '1+' },
+      { title: 'GitHub Contributions', amount: '100+' },
+      { title: 'Happy Clients', amount: '2' },
+    ]}
+  />
+
   <!-- Tech Takes Widget ******* -->
-  <TechTakes
+  <!-- <TechTakes
     title="Latest from X 🐦"
     subtitle="My thoughts on tech & development"
     takes={[
@@ -334,7 +356,7 @@ const metadata = {
         id: '1748392847583838491',
       },
     ]}
-  />
+  /> -->
 
   <!-- HighlightedPosts Widget ******* -->
 
@@ -342,17 +364,6 @@ const metadata = {
     title="Latest Blog Posts"
     information={`Sharing insights on web development, tech trends, and software engineering best practices. 
                   Join me as I explore the ever-evolving world of technology through practical articles and tutorials.`}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Projects Completed', amount: '8' },
-      { title: 'Years Experience', amount: '1+' },
-      { title: 'GitHub Contributions', amount: '100+' },
-      { title: 'Happy Clients', amount: '2' },
-    ]}
   />
 
   <!-- CallToAction Widget *********** -->

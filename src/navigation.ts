@@ -7,6 +7,11 @@ export const headerData = {
       href: getPermalink('/#hero'),
     },
     {
+      text: 'My Blogs',
+      href: getBlogPermalink(),
+      icon: 'tabler:notebook',
+    },
+    {
       text: 'About',
       href: getPermalink('/about'),
     },
@@ -17,12 +22,6 @@ export const headerData = {
     {
       text: 'Skills',
       href: '/#skills',
-    },
-
-    {
-      text: 'My Blog',
-      href: getBlogPermalink(),
-      icon: 'tabler:notebook',
     },
   ],
   actions: [{ text: 'Get in Touch', href: getPermalink('/contact'), variant: 'primary' }],

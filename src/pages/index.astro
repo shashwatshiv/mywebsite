@@ -44,57 +44,6 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <!-- Motto -->
-
-  <Note />
-
-  <!-- About Section -->
-
-  <Features
-    id="features"
-    tagline="About Me"
-    title="Why Work With Me?"
-    subtitle="I combine technical expertise with a passion for creating impactful solutions. Here's what sets me apart:"
-    items={[
-      {
-        title: 'Full-Stack Expertise',
-        description:
-          'Experienced in both frontend and backend development, I build complete solutions from user interfaces to server architecture.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Problem Solver',
-        description:
-          'I thrive on tackling complex challenges and finding elegant solutions. Every project is an opportunity to solve unique problems.',
-        icon: 'tabler:bulb',
-      },
-      {
-        title: 'Modern Tech Stack',
-        description:
-          'Staying current with the latest technologies while maintaining a strong foundation in proven solutions.',
-        icon: 'tabler:stack-2',
-      },
-      {
-        title: 'Clean Code Advocate',
-        description:
-          'I write maintainable, well-documented code that stands the test of time. Quality and best practices are always a priority.',
-        icon: 'tabler:file-code',
-      },
-      {
-        title: 'Continuous Learner',
-        description:
-          'Always exploring new technologies and approaches. I share my learning journey through my blog and open-source contributions.',
-        icon: 'tabler:book',
-      },
-      {
-        title: 'Collaborative Approach',
-        description:
-          'I believe in clear communication and working closely with clients to ensure projects exceed expectations.',
-        icon: 'tabler:users',
-      },
-    ]}
-  />
-
   <!-- Projects Section -->
   <div class="hidden md:block mb-8" id="projects">
     <Content
@@ -104,7 +53,7 @@ const metadata = {
       items={[
         {
           title: 'Description:',
-          description: `Redesigned the e-commerce website for an eco-conscious fashion brand, GreenVogue. The objective was to align the brand's online presence with its sustainable ethos and improve user experience.`,
+          description: `A full-stack fintech system enabling secure peer-to-peer money transfers, on-ramp payment processing through bank webhooks, and real-time balance management with locked/unlocked fund tracking, designed to simulate core digital banking operations.`,
           icon: 'tabler:article',
         },
         {
@@ -114,25 +63,25 @@ const metadata = {
         },
       ]}
       image={{
-        src: '',
-        alt: 'GreenVogue E-commerce Project',
+        src: '~/assets/images/project-img-1.png',
+        alt: 'PayMate - Payments & Wallet App',
       }}
       callToAction={{
         text: 'View Source',
         icon: 'tabler:brand-github',
-        href: 'https://github.com/yourusername/greenvogue',
+        href: 'https://github.com/shashwatshiv/paymate-wallet',
         target: '_blank',
       }}
       callToAction2={{
         text: 'Live Demo',
         icon: 'tabler:external-link',
-        href: 'https://greenvogue.com',
+        href: 'https://paymate-wallet-user-app.vercel.app',
         target: '_blank',
         variant: 'primary',
       }}
     >
       <Fragment slot="content">
-        <h3 class="text-2xl font-bold tracking-tight heading-text sm:text-3xl mb-2">GreenVogue E-commerce</h3>
+        <h3 class="text-2xl font-bold tracking-tight heading-text sm:text-3xl mb-2">PayMate - Payments & Wallet App</h3>
       </Fragment>
 
       <Fragment slot="bg">
@@ -148,25 +97,15 @@ const metadata = {
         <span class="text-base font-semibold tracking-wide uppercase text-primary">Featured Project</span>
       </div>
       <ProjectCard
-        title="GreenVogue E-commerce"
-        description="Redesigned the e-commerce website for an eco-conscious fashion brand, GreenVogue. The objective was to align the brand's online presence with its sustainable ethos and improve user experience."
-        techStack={[
-          'React.js',
-          'Next.js',
-          'TypeScript',
-          'Tailwind',
-          'Node.js',
-          'PostgreSQL',
-          'Prisma',
-          'AWS',
-          'Docker',
-        ]}
+        title="PayMate - Payments & Wallet App"
+        description="A full-stack fintech application providing peer-to-peer transfers, on-ramp payments, and real-time balance tracking with secure fund management."
+        techStack={['React.js', 'Next.js', 'TypeScript', 'Tailwind', 'Node.js', 'PostgreSQL', 'Prisma']}
         image={{
-          src: '',
-          alt: 'GreenVogue E-commerce Project',
+          src: '~/assets/images/project-img-1.png',
+          alt: 'PayMate - Payments & Wallet App',
         }}
-        sourceLink="https://github.com/yourusername/greenvogue"
-        demoLink="https://greenvogue.com"
+        sourceLink="https://github.com/shashwatshiv/paymate-wallet"
+        demoLink="https://paymate-wallet-user-app.vercel.app/"
       />
     </div>
   </div>
@@ -175,20 +114,30 @@ const metadata = {
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 mb-8">
     <div class="grid md:grid-cols-2 gap-8">
       <ProjectCard
-        title="TaskMaster Pro"
-        description="A real-time collaborative task management platform with AI-powered task prioritization. Features include team workspaces, custom workflows, and automated task suggestions."
-        techStack={['Vue.js', 'Nuxt.js', 'Python', 'FastAPI', 'MongoDB', 'Redis', 'TensorFlow', 'Docker', 'Kubernetes']}
+        title="Expresslog - A Minimalist Blog Site"
+        description="A blogging platform supporting user authentication, blog creation and editing, CRUD operations, and frontend pagination for post browsing."
+        techStack={[
+          'React.js',
+          'Tailwind',
+          'Python',
+          'FastAPI',
+          'MongoDB',
+          'Redis',
+          'TensorFlow',
+          'Docker',
+          'Kubernetes',
+        ]}
         image={{
-          src: '',
+          src: '~/assets/images/project-img-2.png',
           alt: 'TaskMaster Pro Project',
         }}
-        sourceLink="https://github.com/yourusername/taskmaster"
-        demoLink="https://taskmaster.app"
+        sourceLink="https://github.com/shashwatshiv/Expresslog"
+        demoLink="https://expresslog.netlify.app/"
       />
 
       <ProjectCard
         title="FitAI Coach"
-        description="A mobile-first fitness tracking application that uses machine learning to provide personalized workout recommendations and form correction through video analysis."
+        description="A mobile-first fitness tracking "
         techStack={['React.js', 'Node.js', 'Express', 'MongoDB', 'TensorFlow', 'Firebase', 'AWS']}
         image={{
           src: '~/assets/images/project-img-3.png',
@@ -230,13 +179,13 @@ const metadata = {
         icon: 'skill-icons:tailwindcss-dark',
       },
       {
-        title: 'Bootstrap',
-        icon: 'skill-icons:bootstrap',
+        title: 'Figma',
+        icon: 'skill-icons:figma-dark',
       },
       // Core Web
       {
-        title: 'HTML',
-        icon: 'skill-icons:html',
+        title: 'Photoshop',
+        icon: 'skill-icons:photoshop',
       },
       {
         title: 'CSS',
@@ -289,13 +238,69 @@ const metadata = {
         title: 'Java',
         icon: 'skill-icons:java-dark',
       },
+      {
+        title: 'Turbo-Repo',
+        icon: 'vscode-icons:file-type-turbo',
+      },
+
+      {
+        title: 'Workers',
+        icon: 'skill-icons:cloudflare-light',
+      },
     ]}
   >
     <!-- <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment> -->
   </Features2>
+  <!-- About Section -->
+  <!-- Motto -->
 
+  <Note />
+  <Features
+    id="features"
+    tagline="About Me"
+    title="Why Work With Me?"
+    subtitle="I combine technical expertise with a passion for creating impactful solutions. Here's what sets me apart:"
+    items={[
+      {
+        title: 'Full-Stack Expertise',
+        description:
+          'Experienced in both frontend and backend development, I build complete solutions from user interfaces to server architecture.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Problem Solver',
+        description:
+          'I thrive on tackling complex challenges and finding elegant solutions. Every project is an opportunity to solve unique problems.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Modern Tech Stack',
+        description:
+          'Staying current with the latest technologies while maintaining a strong foundation in proven solutions.',
+        icon: 'tabler:stack-2',
+      },
+      {
+        title: 'Clean Code Advocate',
+        description:
+          'I write maintainable, well-documented code that stands the test of time. Quality and best practices are always a priority.',
+        icon: 'tabler:file-code',
+      },
+      {
+        title: 'Continuous Learner',
+        description:
+          'Always exploring new technologies and approaches. I share my learning journey through my blog and open-source contributions.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Collaborative Approach',
+        description:
+          'I believe in clear communication and working closely with clients to ensure projects exceed expectations.',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
   <!-- Tech Takes Widget ******* -->
   <TechTakes
     title="Latest from X 🐦"

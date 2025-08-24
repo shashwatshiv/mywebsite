@@ -5,6 +5,7 @@ import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
 import ItemGrid from '../ui/ItemGrid.astro';
+import { Icon } from 'astro-icon/components';
 
 const {
   title = await Astro.slots.render('title'),
@@ -18,12 +19,40 @@ const {
   image = await Astro.slots.render('image'),
   isReversed = false,
   isAfterContent = false,
+  techStack = [],
 
   id,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+// Map tech names to VSCode icons
+const techIconMap: Record<string, string> = {
+  'React.js': 'vscode-icons:file-type-reactjs',
+  'Next.js': 'vscode-icons:file-type-light-next',
+  TypeScript: 'vscode-icons:file-type-typescript-official',
+  JavaScript: 'vscode-icons:file-type-js-official',
+  'Node.js': 'vscode-icons:file-type-node',
+  Python: 'vscode-icons:file-type-python',
+  PostgreSQL: 'vscode-icons:file-type-pgsql',
+  MongoDB: 'vscode-icons:file-type-mongo',
+  Prisma: 'vscode-icons:file-type-prisma',
+  Docker: 'vscode-icons:file-type-docker2',
+  AWS: 'vscode-icons:file-type-aws',
+  Tailwind: 'vscode-icons:file-type-tailwind',
+  CSS: 'vscode-icons:file-type-css',
+  HTML: 'vscode-icons:file-type-html',
+  Express: 'vscode-icons:file-type-node',
+  Firebase: 'vscode-icons:file-type-firebase',
+  Turborepo: 'vscode-icons:file-type-turbo',
+  'Hono.js': 'vscode-icons:file-type-node',
+  NextAuth: 'vscode-icons:file-type-node',
+  Zod: 'vscode-icons:file-type-node',
+  JWT: 'vscode-icons:file-type-node',
+  Zustand: 'vscode-icons:file-type-node',
+  'Cloudflare Workers': 'vscode-icons:file-type-node',
+};
 ---
 
 <WidgetWrapper
@@ -60,6 +89,23 @@ const {
             action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
           }}
         />
+
+        {/* Tech Stack Display */}
+        {
+          techStack && techStack.length > 0 && (
+            <div class="mt-6">
+              <h4 class="text-lg font-medium leading-6 dark:text-white mb-3">Tech Stack:</h4>
+              <div class="flex flex-wrap gap-2">
+                {techStack.map((tech) => (
+                  <div class="inline-flex items-center px-2.5 py-1.5 rounded-md text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">
+                    {techIconMap[tech] && <Icon name={techIconMap[tech]} class="w-4 h-4 mr-1" />}
+                    {tech}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        }
       </div>
       <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
         {

@@ -8,7 +8,7 @@ import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import TechTakes from '~/components/widgets/TechTakes.astro';
+// import TechTakes from '~/components/widgets/TechTakes.astro';
 import ProjectCard from '~/components/widgets/ProjectCard.astro';
 import { getPermalink } from '~/utils/permalinks';
 
@@ -57,11 +57,17 @@ const metadata = {
           description: `A full-stack fintech system enabling secure peer-to-peer money transfers, on-ramp payment processing through bank webhooks, and real-time balance management with locked/unlocked fund tracking, designed to simulate core digital banking operations.`,
           icon: 'tabler:article',
         },
-        {
-          title: 'Tech Stack:',
-          description: `React.js, Next.js, TypeScript, Tailwind CSS, Node.js, PostgreSQL, Prisma, AWS S3, Docker, GitHub Actions`,
-          icon: 'tabler:stack-2',
-        },
+      ]}
+      techStack={[
+        'React.js',
+        'Next.js',
+        'TypeScript',
+        'Tailwind',
+        'Node.js',
+        'PostgreSQL',
+        'Prisma',
+        'NextAuth',
+        'Turborepo',
       ]}
       image={{
         src: '~/assets/images/project-img-1.png',

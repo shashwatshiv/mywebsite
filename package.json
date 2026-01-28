@@ -29,6 +29,7 @@
     "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource-variable/inter": "^5.2.5",
+    "@fontsource-variable/space-grotesk": "^5.2.10",
     "@iconify-json/skill-icons": "^1.2.0",
     "@iconify-json/vscode-icons": "^1.2.16",
     "@radix-ui/react-slot": "^1.2.4",

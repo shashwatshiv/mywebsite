@@ -43,16 +43,24 @@
 }
 
 @variant intersect (&:not([no-intersect]));
+@variant dark (&:where(.dark, .dark *));
 
 :root {
+  --aw-color-primary: #4f46e5;
+  --aw-color-secondary: #ec4899;
+  --aw-color-accent: #8b5cf6;
+
+  --aw-color-text-heading: #1e293b;
+  --aw-color-text-default: #475569;
+  --aw-color-text-muted: #94a3b8;
+  --aw-color-bg-page: #ffffff;
+  --aw-color-bg-page-dark: #0f172a;
+
+  --aw-font-sans: 'Inter Variable', sans-serif;
+  --aw-font-serif: var(--aw-font-sans);
+  --aw-font-heading: 'Space Grotesk Variable', sans-serif;
+
   --color-grid: rgba(128, 128, 128, 0.1);
-  --color-primary: #4f46e5;
-  --color-primary-hover: #6366f1;
-  --color-secondary: #ec4899;
-  --color-heading: #1e293b;
-  --color-heading-dark: #f1f5f9;
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
 
   /* Neobrutalism Variables */
   --main: #FD9745;
@@ -61,6 +69,13 @@
   --border: #000;
   --shadow: #000;
   /* till here */
+}
+
+.dark {
+  --aw-color-bg-page: var(--aw-color-bg-page-dark);
+  --aw-color-text-heading: #f1f5f9;
+  --aw-color-text-default: #d1d5db;
+  --aw-color-text-muted: #9ca3af;
 }
 
 @layer base {
@@ -108,11 +123,11 @@
 
   .heading-text {
     @apply text-slate-800 dark:text-slate-100 font-heading tracking-tight;
-    color: var(--color-heading);
+    color: var(--aw-color-text-heading);
   }
 
   .dark .heading-text {
-    color: var(--color-heading-dark);
+    color: var(--aw-color-text-heading);
   }
 
   .text-gradient {
